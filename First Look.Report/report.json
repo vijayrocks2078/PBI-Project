@@ -1,0 +1,238 @@
+{
+  "config": "{\"version\":\"5.42\",\"themeCollection\":{\"customTheme\":{\"name\":\"AA_Theme8096091490890378.json\",\"version\":\"3.18\",\"type\":1},\"baseTheme\":{\"name\":\"CY18SU04\",\"version\":\"3.18\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false,\"isApplyAllButtonEnabled\":false},\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true},\"objects\":{\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "pods": [
+    {
+      "boundSection": "ReportSection9eae9b992daa107a6460",
+      "config": "{\"acceptsFilterContext\":1}",
+      "name": "Pod",
+      "parameters": "[{\"name\":\"Param_Filter\",\"boundFilter\":\"Filter\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Location\"}},\"Property\":\"Location Name\"}}}]",
+      "type": 1
+    },
+    {
+      "boundSection": "ReportSectione6a60af3343b2b8d110c",
+      "config": "{\"acceptsFilterContext\":1}",
+      "name": "Pod1"
+    },
+    {
+      "boundSection": "ReportSectionba93e1f1e5c48200dd00",
+      "config": "{}",
+      "name": "Pod2",
+      "parameters": "[{\"name\":\"Param_Filter\",\"boundFilter\":\"Filter\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Location\"}},\"Property\":\"Location Name\"}}}]",
+      "type": 2
+    }
+  ],
+  "publicCustomVisuals": [],
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "AA_Theme8096091490890378.json",
+            "path": "AA_Theme8096091490890378.json",
+            "type": 100
+          }
+        ],
+        "name": "RegisteredResources",
+        "type": 1
+      }
+    },
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY18SU04",
+            "path": "BaseThemes/CY18SU04.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Detail",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Location\"}},\"Property\":\"Location Name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"l\",\"Entity\":\"Location\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"l\"}},\"Property\":\"Location Name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Perth Field'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":5}]",
+      "height": 720.00,
+      "name": "ReportSection9eae9b992daa107a6460",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"31543c7562699c77d061\",\"layouts\":[{\"id\":0,\"position\":{\"x\":25.376685170499606,\"y\":141.0943695479778,\"z\":0,\"width\":1090.182394924663,\"height\":492.3076923076923}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Location.Location Name\"},{\"queryRef\":\"Location.City\"},{\"queryRef\":\"CostCentre.Cost Centre Name\"},{\"queryRef\":\"Calendar.Date\"},{\"queryRef\":\"Sum(Project Costs.Amount)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Project Costs\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"CostCentre\",\"Type\":0},{\"Name\":\"c1\",\"Entity\":\"Calendar\",\"Type\":0},{\"Name\":\"l\",\"Entity\":\"Location\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Cost Centre Name\"},\"Name\":\"CostCentre.Cost Centre Name\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Amount\"}},\"Function\":0},\"Name\":\"Sum(Project Costs.Amount)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c1\"}},\"Property\":\"Date\"},\"Name\":\"Calendar.Date\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"l\"}},\"Property\":\"City\"},\"Name\":\"Location.City\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"l\"}},\"Property\":\"Location Name\"},\"Name\":\"Location.Location Name\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c1\"}},\"Property\":\"Date\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"357.7779844004401D\"}}}},\"selector\":{\"metadata\":\"Calendar.Date\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"147.87392453580955D\"}}}},\"selector\":{\"metadata\":\"Location.City\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"163.34655628144174D\"}}}},\"selector\":{\"metadata\":\"CostCentre.Cost Centre Name\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"168.6328419052414D\"}}}},\"selector\":{\"metadata\":\"Location.Location Name\"}}],\"columnFormatting\":[{\"properties\":{},\"selector\":{\"metadata\":\"Sum(Project Costs.Amount)\"}}]}}}",
+          "filters": "[]",
+          "height": 492.31,
+          "width": 1090.18,
+          "x": 25.38,
+          "y": 141.09,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"535f3caa52dddd2852d8\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"width\":100,\"height\":40,\"z\":1000}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'arrowbutton'\"}}}}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Back'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 40.00,
+          "width": 100.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"b1ddca0000cc92c2ad74\",\"layouts\":[{\"id\":0,\"position\":{\"x\":22.331482950039653,\"y\":56.843774781919116,\"z\":2000,\"width\":285.23394131641555,\"height\":61.91911181601903}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Company XYZ\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontFamily\":\"Segoe (Bold)\",\"fontSize\":\"15pt\",\"color\":\"#2b3b4e\"}}]},{\"textRuns\":[{\"value\":\"Detail\",\"textStyle\":{\"fontSize\":\"15pt\"}}]}]}}]}}}",
+          "filters": "[]",
+          "height": 61.92,
+          "width": 285.23,
+          "x": 22.33,
+          "y": 56.84,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"e4f429972bb34e8077d0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":29.436954797779542,\"y\":0,\"z\":3000,\"width\":428.3584456780333,\"height\":42.63283108643934}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Calendar.Fiscal Year\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Calendar\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Fiscal Year\"},\"Name\":\"Calendar.Fiscal Year\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Fiscal Year\"}}}]},\"display\":{\"mode\":\"hidden\"},\"syncGroup\":{\"groupName\":\"Fiscal Year\",\"fieldChanges\":true},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}],\"items\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#3b4960'\"}}}}},\"background\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#cbd5e7'\"}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 42.63,
+          "width": 428.36,
+          "x": 29.44,
+          "y": 0.00,
+          "z": 3000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"type\":1}",
+      "displayName": "Location Tip",
+      "displayOption": 3,
+      "filters": "[{\"name\":\"Filter\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Location\"}},\"Property\":\"Location Name\"}},\"type\":\"Categorical\",\"howCreated\":5}]",
+      "height": 240.00,
+      "name": "ReportSectionba93e1f1e5c48200dd00",
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"14650b6536213c50e072\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":3000,\"width\":319,\"height\":36}}],\"singleVisual\":{\"visualType\":\"multiRowCard\",\"projections\":{\"Values\":[{\"queryRef\":\"Location.Location Name\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"l\",\"Entity\":\"Location\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"l\"}},\"Property\":\"Location Name\"},\"Name\":\"Location.Location Name\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"card\":[{\"properties\":{\"barShow\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"cardPadding\":{\"expr\":{\"Literal\":{\"Value\":\"16D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 36.00,
+          "width": 319.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"26bc8ad852096b8ac10d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":43,\"z\":1000,\"width\":92,\"height\":46}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Project Costs.Amount)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Project Costs\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Amount\"}},\"Function\":0},\"Name\":\"Sum(Project Costs.Amount)\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Amount\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"'18'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 46.00,
+          "width": 92.00,
+          "x": 0.00,
+          "y": 43.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"53b3e14fccbe45d13714\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1,\"y\":151,\"z\":2000,\"width\":318,\"height\":89}}],\"singleVisual\":{\"visualType\":\"treemap\",\"projections\":{\"Group\":[{\"queryRef\":\"CostCentre.Cost Centre Name\",\"active\":true}],\"Values\":[{\"queryRef\":\"Sum(Project Costs.Amount)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"CostCentre\",\"Type\":0},{\"Name\":\"p\",\"Entity\":\"Project Costs\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Cost Centre Name\"},\"Name\":\"CostCentre.Cost Centre Name\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Amount\"}},\"Function\":0},\"Name\":\"Sum(Project Costs.Amount)\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 89.00,
+          "width": 318.00,
+          "x": 1.00,
+          "y": 151.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"f43a6f01e39c07802c6d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":114,\"y\":1,\"z\":0,\"width\":206,\"height\":142}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(Project Costs.Amount)\"}],\"Category\":[{\"queryRef\":\"Calendar.Date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Project Costs\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"Calendar\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Amount\"}},\"Function\":0},\"Name\":\"Sum(Project Costs.Amount)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Date\"},\"Name\":\"Calendar.Date\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Date\"}}}]},\"drillFilterOtherVisuals\":true,\"vcObjects\":{\"title\":[{\"properties\":{\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'right'\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2b3b4e'\"}}}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"9L\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 142.00,
+          "width": 206.00,
+          "x": 114.00,
+          "y": 1.00,
+          "z": 0.00
+        }
+      ],
+      "width": 320.00
+    },
+    {
+      "config": "{\"relationships\":[{\"source\":\"f41fe6a12a8333927769\",\"target\":\"7408a0483d9c3d14ba8a\",\"type\":1},{\"source\":\"f41fe6a12a8333927769\",\"target\":\"9bd181acba0226c294ce\",\"type\":1},{\"source\":\"7408a0483d9c3d14ba8a\",\"target\":\"9bd181acba0226c294ce\",\"type\":1}]}",
+      "displayName": "Report",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSectione6a60af3343b2b8d110c",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"248afc5d3d372043b417\",\"layouts\":[{\"id\":0,\"position\":{\"x\":87.29579698651864,\"y\":65.97938144329898,\"z\":6000,\"width\":285.23394131641555,\"height\":63.949246629659}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Company XYZ\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontFamily\":\"Segoe (Bold)\",\"fontSize\":\"15pt\",\"color\":\"#2b3b4e\"}}],\"horizontalTextAlignment\":\"center\"},{\"textRuns\":[{\"value\":\"Actual v Budget\",\"textStyle\":{\"fontSize\":\"15pt\"}}],\"horizontalTextAlignment\":\"center\"}]}}]}}}",
+          "filters": "[]",
+          "height": 63.95,
+          "width": 285.23,
+          "x": 87.30,
+          "y": 65.98,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"27000e8a37b06548d120\",\"layouts\":[{\"id\":0,\"position\":{\"x\":226.36003172085648,\"y\":157.33544805709755,\"z\":1000,\"width\":164.44091990483744,\"height\":71.0547184773989}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Budget.Budget)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Project Costs\",\"Type\":0},{\"Name\":\"b\",\"Entity\":\"Budget\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"Budget\"}},\"Function\":0},\"Name\":\"Sum(Budget.Budget)\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Amount\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2b3b4e'\"}}}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"'25'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#808080'\"}}}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"title\":[{\"properties\":{\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#173452'\"}}}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"12L\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Budget'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 71.05,
+          "width": 164.44,
+          "x": 226.36,
+          "y": 157.34,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"7408a0483d9c3d14ba8a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":458.06020066889636,\"y\":21.40468227424749,\"z\":2000,\"width\":772.7090301003345,\"height\":235.45150501672242}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(Project Costs.Amount)\"}],\"Category\":[{\"queryRef\":\"Calendar.Fiscal Year\",\"active\":true},{\"queryRef\":\"Calendar.Month\"}],\"Tooltips\":[{\"queryRef\":\"Sum(Budget.Budget)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Project Costs\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"Calendar\",\"Type\":0},{\"Name\":\"b\",\"Entity\":\"Budget\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Amount\"}},\"Function\":0},\"Name\":\"Sum(Project Costs.Amount)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Month\"},\"Name\":\"Calendar.Month\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Fiscal Year\"},\"Name\":\"Calendar.Fiscal Year\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"Budget\"}},\"Function\":0},\"Name\":\"Sum(Budget.Budget)\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2b3b4e'\"}}}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2b3b4e'\"}}}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"15L\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 235.45,
+          "width": 772.71,
+          "x": 458.06,
+          "y": 21.40,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"7bf3501b6578796a6d2d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":54.81363996827915,\"y\":159.3655828707375,\"z\":0,\"width\":164.44091990483744,\"height\":71.0547184773989}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Project Costs.Amount)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Project Costs\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Amount\"}},\"Function\":0},\"Name\":\"Sum(Project Costs.Amount)\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Amount\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2b3b4e'\"}}}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"'25'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":8,\"Percent\":0}}}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#808080'\"}}}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"title\":[{\"properties\":{\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#173452'\"}}}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"12L\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Actual'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 71.05,
+          "width": 164.44,
+          "x": 54.81,
+          "y": 159.37,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"9bd181acba0226c294ce\",\"layouts\":[{\"id\":0,\"position\":{\"x\":481.1419508326725,\"y\":316.70103092783506,\"z\":3000,\"width\":750.1348136399683,\"height\":351.2133227597145}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(Project Costs.Amount)\"}],\"Category\":[{\"queryRef\":\"Location.Location Name\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Project Costs\",\"Type\":0},{\"Name\":\"l\",\"Entity\":\"Location\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Amount\"}},\"Function\":0},\"Name\":\"Sum(Project Costs.Amount)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"l\"}},\"Property\":\"Location Name\"},\"Name\":\"Location.Location Name\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Amount\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#7891af'\"}}}}},\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"labelPosition\":{\"expr\":{\"Literal\":{\"Value\":\"'Auto'\"}}}}}],\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2b3b4e'\"}}}}}}}],\"categoryAxis\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"12M\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"concatenateLabels\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#173452'\"}}}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"15L\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[{\"expression\":{\"GroupRef\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Location\"}},\"Property\":\"Location Name (groups)\",\"GroupedColumns\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Location\"}},\"Property\":\"Location Name\"}}]}},\"type\":\"Categorical\",\"howCreated\":1,\"isHiddenInViewMode\":false}]",
+          "height": 351.21,
+          "width": 750.13,
+          "x": 481.14,
+          "y": 316.70,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"a3a9de7526cb00592e8c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":29.436954797779542,\"y\":0,\"z\":5000,\"width\":428.3584456780333,\"height\":42.63283108643934}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Calendar.Fiscal Year\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Calendar\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Fiscal Year\"},\"Name\":\"Calendar.Fiscal Year\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Fiscal Year\"}}}]},\"syncGroup\":{\"groupName\":\"Fiscal Year\",\"fieldChanges\":true},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}],\"items\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#3b4960'\"}}}}},\"background\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#cbd5e7'\"}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 42.63,
+          "width": 428.36,
+          "x": 29.44,
+          "y": 0.00,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"ef59d51947448abb1b5b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":48.72323552735924,\"y\":243.6161776367962,\"z\":7000,\"width\":1189.6590007930215,\"height\":65.97938144329898}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'line'\"}}}}}],\"rotation\":[{\"properties\":{\"angle\":{\"expr\":{\"Literal\":{\"Value\":\"90D\"}}}}}],\"line\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#596e8f'\"}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 65.98,
+          "width": 1189.66,
+          "x": 48.72,
+          "y": 243.62,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"f41fe6a12a8333927769\",\"layouts\":[{\"id\":0,\"position\":{\"x\":42.63283108643934,\"y\":293.35448057097545,\"z\":4000,\"width\":394.86122125297385,\"height\":422.26804123711344}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"CostCentre.Cost Centre Name\"},{\"queryRef\":\"Sum(Project Costs.Amount)\"},{\"queryRef\":\"Sum(Budget.Budget)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"CostCentre\",\"Type\":0},{\"Name\":\"p\",\"Entity\":\"Project Costs\",\"Type\":0},{\"Name\":\"b\",\"Entity\":\"Budget\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Cost Centre Name\"},\"Name\":\"CostCentre.Cost Centre Name\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"Amount\"}},\"Function\":0},\"Name\":\"Sum(Project Costs.Amount)\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"Budget\"}},\"Function\":0},\"Name\":\"Sum(Budget.Budget)\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"values\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"'12'\"}}}}}],\"grid\":[{\"properties\":{\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}},\"outlineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#7692bf'\"}}}}},\"rowPadding\":{\"expr\":{\"Literal\":{\"Value\":\"9D\"}}}}}],\"columnHeaders\":[{\"properties\":{\"backColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2b3b4e'\"}}}}}}}],\"total\":[{\"properties\":{\"backColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#173452'\"}}}}}}}]},\"vcObjects\":{\"stylePreset\":[{\"properties\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'AlternatingRows'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 422.27,
+          "width": 394.86,
+          "x": 42.63,
+          "y": 293.35,
+          "z": 4000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ],
+  "theme": "AA_Theme8096091490890378.json"
+}

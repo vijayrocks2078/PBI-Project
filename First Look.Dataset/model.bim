@@ -1,0 +1,1182 @@
+{
+  "compatibilityLevel": 1550,
+  "model": {
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "1"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.122.746.0 (23.10)"
+      },
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"Project Costs\",\"Calendar\",\"CostCentre\",\"Location\",\"Budget\",\"MyMeasures\"]"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "en-AU",
+    "cultures": [
+      {
+        "name": "en-AU",
+        "linguisticMetadata": {
+          "content": {
+            "DynamicImprovement": "HighConfidence",
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "relationships": [
+      {
+        "name": "3f1d3be0-318c-49a1-a8f4-9736be9f9c0d",
+        "fromColumn": "Date",
+        "fromTable": "Calendar",
+        "joinOnDateBehavior": "datePartOnly",
+        "toColumn": "Date",
+        "toTable": "LocalDateTable_e5bb7f73-98ce-4bf6-80e0-77762bbd091b"
+      },
+      {
+        "name": "b8cbccd0-635e-4634-be1c-11792fbb85bc",
+        "fromColumn": "Location Code",
+        "fromTable": "Project Costs",
+        "toColumn": "Location Code",
+        "toTable": "Location"
+      },
+      {
+        "name": "113dcac0-2414-4679-a91d-b7895145f73b",
+        "fromColumn": "Cost Centre Code",
+        "fromTable": "Project Costs",
+        "toColumn": "Cost Centre Code",
+        "toTable": "CostCentre"
+      },
+      {
+        "name": "aa2e871c-54bf-4eec-8857-f1e4633fd665",
+        "fromColumn": "Date",
+        "fromTable": "Project Costs",
+        "toColumn": "Date",
+        "toTable": "Calendar"
+      },
+      {
+        "name": "bac79977-d64e-4f33-b9bd-0a55faf1cb5f",
+        "fromColumn": "Location Code",
+        "fromTable": "Budget",
+        "toColumn": "Location Code",
+        "toTable": "Location"
+      },
+      {
+        "name": "841d0499-6bee-4731-bf4e-d860cc2db6c7",
+        "fromColumn": "Cost Centre Code",
+        "fromTable": "Budget",
+        "toColumn": "Cost Centre Code",
+        "toTable": "CostCentre"
+      },
+      {
+        "name": "94b6a282-543a-4c48-84bc-f3cdb317b874",
+        "fromColumn": "Date",
+        "fromTable": "Budget",
+        "toColumn": "Date",
+        "toTable": "Calendar"
+      }
+    ],
+    "sourceQueryCulture": "en-AU",
+    "tables": [
+      {
+        "name": "Project Costs",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Location Code",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7e40f90b-a02e-4a77-b2a4-ca290ab2d1af",
+            "sourceColumn": "Location Code",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Cost Centre Code",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7d49ef35-6ce3-4618-a50c-5606373be65d",
+            "sourceColumn": "Cost Centre Code",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "1fced41c-91fe-4b2f-a6db-6f2447c47798",
+            "sourceColumn": "Date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Amount",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isDecimal\":true}"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0",
+            "lineageTag": "9610f41e-45f5-499a-98d3-7dcf3105caee",
+            "sourceColumn": "Amount",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "c10ee140-0de4-40e4-86b9-0d778a5a6d61",
+        "partitions": [
+          {
+            "name": "Project Costs-e4c49d7e-5546-4e87-823d-352e813e3a71",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"\\\\AAS-DC-01\\COMPANY\\Operations\\Excel\\Training\\AA Courses\\D6 Power BI Develop Publish and Share\\Exercises\\Source Files\\Data Set 1\\Project Data.xlsx\"), null, true),",
+                "    Data_Sheet = Source{[Item=\"Data\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Data_Sheet, [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Location Code\", type text}, {\"Cost Centre Code\", type text}, {\"Date\", type date}, {\"Amount\", type number}, {\"Column5\", type any}, {\"Column6\", type any}}),",
+                "    #\"Removed Other Columns\" = Table.SelectColumns(#\"Changed Type\",{\"Location Code\", \"Cost Centre Code\", \"Date\", \"Amount\"})",
+                "in",
+                "    #\"Removed Other Columns\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "DateTableTemplate_b0aba477-8be8-4f0d-b63c-3fb107139a70",
+        "annotations": [
+          {
+            "name": "__PBI_TemplateDateTable",
+            "value": "true"
+          },
+          {
+            "name": "DefaultItem",
+            "value": "DateHierarchy"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "478caacf-3142-4b69-bf13-3a2ce06bc880",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "16560000-c20a-468c-bb81-6f7b2cf01a91",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "3b19c0db-2dd7-445f-a672-0d86ad190e7e",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "63e392ec-0644-4790-994b-7c8454e30a1c",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "4f94178c-1428-41ea-af81-3b4cd91c8ef6",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Qtr \" & [QuarterNo]",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "0e510358-8ba2-4b40-8e56-3b1564350887",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "f014af38-0da6-4826-9ebb-c9f80d767e2e",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "49f55bc9-5273-485a-b59e-e3d68db71b76",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "084cfaa0-ab17-4d76-b584-adca6ddbff41",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "60cf7a1c-7200-409e-bb66-1741e43e682b",
+                "ordinal": 2
+              },
+              {
+                "name": "Day",
+                "column": "Day",
+                "lineageTag": "fa4a907f-9b11-4ca4-b3d7-e741953bddb2",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "9d32100d-b4ac-4553-9b10-01838c1facd5"
+          }
+        ],
+        "isHidden": true,
+        "isPrivate": true,
+        "lineageTag": "2e6d5feb-4c5b-4d2d-b067-6f4c3e263cd2",
+        "partitions": [
+          {
+            "name": "DateTableTemplate_b0aba477-8be8-4f0d-b63c-3fb107139a70-7652a07c-1251-4553-95a2-70f98fe0e6d9",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(2015,1,1), Date(2015,1,1))",
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Calendar",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "d7f8b1d4-5412-4751-8c0d-bb0718c53386",
+            "sourceColumn": "Date",
+            "summarizeBy": "none",
+            "variations": [
+              {
+                "name": "Variation",
+                "defaultHierarchy": {
+                  "hierarchy": "Date Hierarchy",
+                  "table": "LocalDateTable_e5bb7f73-98ce-4bf6-80e0-77762bbd091b"
+                },
+                "isDefault": true,
+                "relationship": "3f1d3be0-318c-49a1-a8f4-9736be9f9c0d"
+              }
+            ]
+          },
+          {
+            "name": "Month No",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "6c11d736-174b-4de2-af85-875827964b7c",
+            "sourceColumn": "Month No",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Year (Calendar)",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "ee12acd9-13ec-4f0c-afa8-ff7f854b1df3",
+            "sourceColumn": "Year (Calendar)",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "b62a3083-9ad2-43af-bb50-745d4ec3e0ed",
+            "sortByColumn": "Fiscal Month No",
+            "sourceColumn": "Month",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Month (Long)",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7d76d773-c4c5-4016-9db6-1ccef7ae3994",
+            "sourceColumn": "Month (Long)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c1cd1d17-0e0e-4059-902c-d711f72358b6",
+            "sourceColumn": "Quarter",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Fiscal Month No",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "5a98aee1-371c-4df3-8d76-1b4099a3f620",
+            "sourceColumn": "Fiscal Month No",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Fiscal Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "a5074c38-382b-4bb9-a54c-ad746bf9bec2",
+            "sourceColumn": "Fiscal Year",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "9407bdd5-1501-4710-8071-189efe62b49d",
+        "partitions": [
+          {
+            "name": "Calendar-edfd5099-7ce1-4c84-ace3-d0246f82e3be",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"\\\\AAS-DC-01\\COMPANY\\Operations\\Excel\\Training\\AA Courses\\D6 Power BI Develop Publish and Share\\Exercises\\Source Files\\Data Set 1\\Mapping File.xlsx\"), null, true),",
+                "    tblCalendar_Table = Source{[Item=\"tblCalendar\",Kind=\"Table\"]}[Data],",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(tblCalendar_Table,{{\"Date\", type date}, {\"Month No\", Int64.Type}, {\"Year (Calendar)\", Int64.Type}, {\"Month\", type text}, {\"Month (Long)\", type text}, {\"Quarter\", type text}, {\"Fiscal Month No\", Int64.Type}, {\"Fiscal Year\", Int64.Type}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "LocalDateTable_e5bb7f73-98ce-4bf6-80e0-77762bbd091b",
+        "annotations": [
+          {
+            "name": "__PBI_LocalDateTable",
+            "value": "true"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "1732066e-3cd7-459e-aff2-d6985e4da012",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "f74798be-59f3-493c-8a6a-c27d0859d1bc",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "5b38d1a7-ef5d-46d7-9338-3c8d164366cc",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "d560b796-479d-4d3e-b322-cff131a44f06",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "94c773c3-28de-4ad3-9bef-15388c3deae5",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Qtr \" & [QuarterNo]",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "f704c8c4-345d-4da1-8df1-318015b364dd",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "d9551562-c74a-4473-8db0-ba245a3b6604",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "6f92b46c-4e2d-49f7-b0b0-99a20b86756b",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "f9d562c0-0f36-40b6-ba27-22230d441ea4",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "40193439-279b-403e-a79c-1aaeba737bb0",
+                "ordinal": 2
+              },
+              {
+                "name": "Day",
+                "column": "Day",
+                "lineageTag": "a2f4ccb5-1985-400c-aa6d-1186dc788878",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "c65238bc-3124-4878-89ab-b98026c37c7b"
+          }
+        ],
+        "isHidden": true,
+        "lineageTag": "d5b619b5-f9ba-4ff8-aeec-baa77a643f91",
+        "partitions": [
+          {
+            "name": "LocalDateTable_e5bb7f73-98ce-4bf6-80e0-77762bbd091b-b6b69679-2dd8-4b80-9fb2-0c3c4d9b406d",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(Year(MIN('Calendar'[Date])), 1, 1), Date(Year(MAX('Calendar'[Date])), 12, 31))",
+              "type": "calculated"
+            }
+          }
+        ],
+        "showAsVariationsOnly": true
+      },
+      {
+        "name": "CostCentre",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Cost Centre Code",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f4c19717-2e3a-4369-91e2-33312af3fd6c",
+            "sourceColumn": "Cost Centre Code",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Cost Centre Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "0a085162-417b-409b-8ec5-4e6fb74cff13",
+            "sourceColumn": "Cost Centre Name",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "45db3199-2d8b-4857-87df-0a4f9cd3d970",
+        "partitions": [
+          {
+            "name": "CostCentre-35a9d1cc-542e-47f9-8299-ef7f070b4d05",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"\\\\AAS-DC-01\\COMPANY\\Operations\\Excel\\Training\\AA Courses\\D6 Power BI Develop Publish and Share\\Exercises\\Source Files\\Data Set 1\\Mapping File.xlsx\"), null, true),",
+                "    tblCostCentreMap_Table = Source{[Item=\"tblCostCentreMap\",Kind=\"Table\"]}[Data],",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(tblCostCentreMap_Table,{{\"Cost Centre Code\", type text}, {\"Cost Centre Name\", type text}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Location",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Location Code",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7bcb553a-df1f-4efa-8926-a5ce3dd0c7bf",
+            "sourceColumn": "Location Code",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Location Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8bf3016e-468e-4208-b0e6-86fe8477a898",
+            "sourceColumn": "Location Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Country",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d2d75a82-1c63-4d9b-8661-a1403be97cbe",
+            "sourceColumn": "Country",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "City",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a532fcbf-0f0a-44a9-a7ca-999277d092f4",
+            "sourceColumn": "City",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Post Code",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "814d1224-4d3c-431e-b72b-f843684151bc",
+            "sourceColumn": "Post Code",
+            "summarizeBy": "count"
+          },
+          {
+            "name": "Address (Place)",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "9a05b508-5295-45e6-bdc9-898f1c0bda49",
+            "sourceColumn": "Address (Place)",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "27027f75-4d80-4697-8588-5ead9b6aadc3",
+        "measures": [
+          {
+            "name": "List of Location Name values",
+            "expression": [
+              "",
+              "VAR __DISTINCT_VALUES_COUNT = DISTINCTCOUNT('Location'[Location Name])",
+              "VAR __MAX_VALUES_TO_SHOW = 3",
+              "RETURN",
+              "\tIF(",
+              "\t\t__DISTINCT_VALUES_COUNT > __MAX_VALUES_TO_SHOW,",
+              "\t\tCONCATENATE(",
+              "\t\t\tCONCATENATEX(",
+              "\t\t\t\tTOPN(",
+              "\t\t\t\t\t__MAX_VALUES_TO_SHOW,",
+              "\t\t\t\t\tVALUES('Location'[Location Name]),",
+              "\t\t\t\t\t'Location'[Location Name],",
+              "\t\t\t\t\tASC",
+              "\t\t\t\t),",
+              "\t\t\t\t'Location'[Location Name],",
+              "\t\t\t\t\", \",",
+              "\t\t\t\t'Location'[Location Name],",
+              "\t\t\t\tASC",
+              "\t\t\t),",
+              "\t\t\t\", etc.\"",
+              "\t\t),",
+              "\t\tCONCATENATEX(",
+              "\t\t\tVALUES('Location'[Location Name]),",
+              "\t\t\t'Location'[Location Name],",
+              "\t\t\t\", \",",
+              "\t\t\t'Location'[Location Name],",
+              "\t\t\tASC",
+              "\t\t)",
+              "\t)"
+            ],
+            "extendedProperties": [
+              {
+                "name": "MeasureTemplate",
+                "type": "json",
+                "value": {
+                  "daxTemplateName": "ConcatenateValues",
+                  "version": 0
+                }
+              }
+            ],
+            "lineageTag": "2e01f15c-415e-44b4-b389-8f6adc7662df"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Location-b41b5fb2-1de3-48a6-add8-5cf37f08f160",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"\\\\AAS-DC-01\\COMPANY\\Operations\\Excel\\Training\\AA Courses\\D6 Power BI Develop Publish and Share\\Exercises\\Source Files\\Data Set 1\\Mapping File.xlsx\"), null, true),",
+                "    tblLocationCode_Table = Source{[Item=\"tblLocationCode\",Kind=\"Table\"]}[Data],",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(tblLocationCode_Table,{{\"Location Code\", type text}, {\"Location Name\", type text}, {\"Country\", type text}, {\"City\", type text}, {\"Post Code\", Int64.Type}, {\"Address (Place)\", type text}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Budget",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Location",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "dd30e838-fd8c-4ec3-b888-9a1bf19e8e0e",
+            "sourceColumn": "Location",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Location Code",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "903632b0-ed94-4555-a886-57ce603a2110",
+            "sourceColumn": "Location Code",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Cost Centre",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "637323ad-eaba-4e1e-aa8c-52dfa9be6657",
+            "sourceColumn": "Cost Centre",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Cost Centre Code",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "eb50cc4b-9b62-439e-a52e-e44b79115089",
+            "sourceColumn": "Cost Centre Code",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "9c392f6c-039c-40f2-b6ac-9d4d604dbc86",
+            "sourceColumn": "Month",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Budget",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isDecimal\":true}"
+              }
+            ],
+            "dataType": "double",
+            "formatString": "#,0",
+            "lineageTag": "c1f61b89-84ee-40b0-9ce4-3b27997af354",
+            "sourceColumn": "Budget",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "8e04de18-8a6c-45fe-a02b-d51e3e9454ba",
+            "sourceColumn": "Date",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "bfec0473-57d7-45e7-8cdd-c1ed06c3de17",
+        "partitions": [
+          {
+            "name": "Budget-e37d654d-89e8-429d-b25e-4661add94e30",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"\\\\AAS-DC-01\\COMPANY\\Operations\\Excel\\Training\\AA Courses\\D6 Power BI Develop Publish and Share\\Exercises\\Source Files\\Data Set 1\\Budget Matrix.xlsx\"), null, true),",
+                "    Budget_Sheet = Source{[Item=\"Budget\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Budget_Sheet, [PromoteAllScalars=true]),",
+                "    #\"Unpivoted Other Columns\" = Table.UnpivotOtherColumns(#\"Promoted Headers\", {\"Location\", \"Location Code\", \"Cost Centre\", \"Cost Centre Code\"}, \"Attribute\", \"Value\"),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Unpivoted Other Columns\",{{\"Attribute\", \"Month\"}, {\"Value\", \"Budget\"}}),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Renamed Columns\",{{\"Location\", type text}, {\"Location Code\", type text}, {\"Cost Centre\", type text}, {\"Cost Centre Code\", type text}, {\"Budget\", type number}}),",
+                "    #\"Inserted End of Month\" = Table.AddColumn(#\"Changed Type\", \"Date\", each Date.EndOfMonth(Date.From([Month])), type date)",
+                "in",
+                "    #\"Inserted End of Month\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "MyMeasures",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Column1",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "debe91f2-a08f-45e6-b2d5-4424e3738482",
+            "sourceColumn": "Column1",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "337f95c4-f100-4663-bbca-607ee4672b93",
+        "measures": [
+          {
+            "name": "Budget",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "Sum(Budget[Budget])",
+            "lineageTag": "d34cad93-9e7c-4753-b437-1873ae172d03"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "MyMeasures-14016b89-93e7-4e2c-9772-77c833fb0922",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText(\"i44FAA==\", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type text) meta [Serialized.Text = true]) in type table [Column1 = _t]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(Source,{{\"Column1\", type text}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
